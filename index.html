@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="index.css" rel="stylesheet">
+    <style>
+        #about{
+            border: 1px solid black;
+        }
+    </style>
+    <title>HW 2 Part 2</title>
+</head>
+    <header>
+        <h1>CSE 134B HW 2 Part 2</h1>
+        <nav>
+            <ul>
+                <li><a href='#home'>Home</a></li>
+                <li><a href='#about'>About</a></li>
+                <li><a href="#random">Random</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <section id='home'>
+        <h2>Reyner's Blog</h2>
+        <h3><em>Passion. Motivation. Fun.</em> It's all in here!</h3>
+        <p>This is <strong>part 2 of HW 2</strong> of <i>CSE 134B</i>.</p>
+        <pre>
+        H               H  W                                 W       2  2
+        H               H   W               W               W      2       2
+        H               H    W             W W             W      2         2
+        H               H     W           W   W           W       2         2
+        HHHHHHHHHHHHHHHHH      W         W     W         W                 2
+        H               H       W       W       W       W                 2
+        H               H        W     W         W     W                2
+        H               H         W   W           W   W               2
+        H               H          W W             W W              2
+        H               H           W               W             22222222222222 
+        </pre> 
+    </section>
+
+    <section id='about'>
+        <h2>About Me</h2>
+        <h3>Brief intro about myself.</h3>
+        <p>My name is <b>Reyner</b>. Here are things I enjoy doing or interested in: </p>
+        <ol>
+            <li>learning web client languages and software engineering.</li>
+            <li>Exercise on a daily basis, mostly lift weights and calisthenics</li>
+            <li>Play music in my leisure time</li>
+            <li>Watch YouTube, Premiere League, Netflix</li>
+        </ol>
+        <aside>
+            <p>With the current remote learning situation, I tried to go out more to enjoy the sun and move more, to keep my body fit and feel energized. It also helps me increase my overall productivity throughout the day.</p>
+        </aside>
+        <table>
+            <caption>Technical skills</caption>
+            <colgroup>
+                <col span='1' class='entertainment'>
+                <col span='1' class='technology'>
+            </colgroup>
+            <tr>
+                <th scope="col">Field</th>
+                <th scope="col">Proficiency Score</th>
+            </tr>
+            <tr>
+                <th scope="row">Python</th>
+                <td>9.2</td>
+            </tr>
+            <tr>
+                <th scope="row">C++/C</th>
+                <td>9.1</td>
+            </tr>
+            <tr>
+                <th scope="row">Java</th>
+                <td>8.5</td>
+            </tr>
+            <tr>
+                <th scope="row">HTML</th>
+                <td>9.0</td>
+            </tr>
+            <tr>
+                <th scope="row">CSS</th>
+                <td>8.0</td>
+            </tr>
+            <tr>
+                <th scope="row">JavaScript</th>
+                <td>8.0</td>
+            </tr>
+        </table>
+        <div>
+            <h3>Fun facts</h3>
+            <hr>
+            <p>My favorite place to travel is <span>Bali</span>. Here are some scenic views in Bali.</p>
+            <picture>
+                <source srcset="bali.jpeg" media="(min-width:800px)">
+                <img src="bali.jpeg" alt="Cliff Bali">
+            </picture>
+
+            <figure>
+                <img src="bali-sunset.jpg" alt="Sunset in Bali" />
+                <figcaption>Sunset in Bali.</figcaption>
+            </figure>
+
+            
+            <br>
+            <p>Here's a Bali travel vlog.</p>
+            <iframe width="340" height="188" 
+            src="https://www.youtube.com/embed/In4l296yhLY" 
+            title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            <p>I love doing flips!</p>
+            <video controls
+            width="350"
+            height="auto">
+            <source src="flashkick.mp4">
+            </video>
+
+            <figure>
+                <figcaption>Listen to the song below and have a great time :)</figcaption>
+                <audio
+                    controls
+                    src="rickroll.mp3">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                </audio>
+            </figure>
+
+            <details>
+                <summary>Bucket lists</summary>
+                <ul>
+                    <li>Cliff jumping</li>
+                    <li>Skydiving</li>
+                    <li>Become a Fitness Influencer, Musician, and a <code>SoftwareEngineer();</code></li>
+                </ul>
+            </details>
+        </div>
+        
+    </section>
+
+    <br>
+
+    <section id='random'>
+        <h2>Miscellaneous</h2>
+        <h3>Random stuff that you may found interesting.</h3>
+        <p>In Bali, the sun shines very bright.</p>
+        <canvas></canvas>
+        <br>
+        <p>In San Diego, the sun shines very bright.</p>
+        <svg width="200" height="100">
+            <circle cx="100" cy="50" r="50" fill="yellow" />
+        </svg>
+        <script>
+            const canvas = document.querySelector('canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'yellow';
+            ctx.arc(100, 75, 50, 0, 2*Math.PI);
+            ctx.fill();
+        </script>
+        <form>
+            <label for='name'>Name 
+                <input id='name' type="text">
+            </label>
+            <label for='comment'>Comments
+                <textarea id='comment'></textarea>
+            </label>
+            <label for="superpower-select">Choose a superpower</label>
+            <select name="superpowers" id="superpower-select">
+                <option value='default' hidden>Select</option>
+                <optgroup label='air'>
+                    <option value='fly'>Fly</option>
+                </optgroup>
+                <optgroup label='water'>
+                    <option value='breath-under-water'>Breath under water</option>
+                </optgroup>
+            </select>
+            <label for="color-choice">Choose a color:</label>
+            <input list="colors" id="color-choice" name="color-choice" />
+            <datalist id="colors">
+                <option value="Maroon">
+                <option value="Navy">
+                <option value="Beige">
+            </datalist>
+            <fieldset>
+                <legend>Subscribe below</legend>
+                <button>Subscribe</button>
+            </fieldset>
+        </form>
+
+        <template>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+        </template>
+    </section>
+    
+    <footer>
+        <p>Copyright Reyner.</p>
+    </footer>
+
+</body>
+</html>
