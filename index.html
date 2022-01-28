@@ -18,14 +18,14 @@
             <ul>
                 <li><a href='#home'>Home</a></li>
                 <li><a href='#about'>About</a></li>
-                <li><a href="#miscellaneous">Miscellaneous</a></li>
+                <li><a href="#projects-miscellaneous">Projects & Miscellaneous</a></li>
             </ul>
         </nav>
     </header>
     <hr>
     <section id='home'>
         <h2>Reyner's Blog</h2>
-        <h3><em>Passion. Motivation. Fun.</em> It's all in here!</h3>
+        <h3><em>Passion. Motivation. Fun.</em></h3>
         <p>This is <strong>part 2 of HW 2</strong> of <i>CSE 134B</i>.</p>
         <pre>
         H               H  W                                 W       2  2
@@ -44,11 +44,11 @@
     <section id='about'>
         <h2>About Me</h2>
         <h3>Brief intro about myself.</h3>
-        <p>My name is <b>Reyner</b>. Here are things I enjoy doing or interested in: </p>
+        <p>My name is <b>Reyner</b>. I'm a senior studying Computer Science as my major and Music as my minor at the University of California San Diego (UCSD). I am interested in having a career in Software Engineering. I personally see Software Engineering as an outlet to build things and serve contents online to make interactions, which are fascinating since I first learned about it. The complexity of problem soving and logics that involved in it is also one of the things that spark my interest and appreciate this field.</p>
+        <p>Outside of the technology sphere, here are things I enjoy doing and also interested in:</p>
         <ol>
-            <li>learning web client languages and software engineering.</li>
             <li>Exercise on a daily basis, mostly lift weights and calisthenics</li>
-            <li>Play music in my leisure time</li>
+            <li>Play music or make music in my leisure time</li>
             <li>Watch YouTube, Premiere League, Netflix</li>
         </ol>
         <aside>
@@ -69,7 +69,7 @@
                 <td>9.2</td>
             </tr>
             <tr>
-                <th scope="row">C++/C</th>
+                <th scope="row">C/C++</th>
                 <td>9.1</td>
             </tr>
             <tr>
@@ -88,11 +88,48 @@
                 <th scope="row">JavaScript</th>
                 <td>8.0</td>
             </tr>
-        </table>
+        </table>        
+        
+    </section>
+
+    <br>
+
+    <section id='projects-miscellaneous'>
+        <h2>Projects & Miscellaneous</h2>
+        <h3>Past personal and collaboration software projects + random stuff that you may found interesting.</h3>
+
+        <div id='projects-container'>
+            <div class='project-element'>
+                <div class='project-thumbnail'>
+                </div>
+                <div class='project-detail'>
+                    <p>FitnessFormFixer is a personal web app project that analyzes user's form in a resistance training exercise. Through the integration of neural network and visualization tools, users are able to see themselves performing an exercise and get an assistance to maintain a correct form during the execution of an exercise.</p>
+                    <span><a href='http://github.com/latteslurp/FitnessFormFixer' target='blank'>FitnessFormFixer GitHub repo</a></span>
+                </div>
+            </div>
+            <div class='project-element'>
+                <div class='project-thumbnail'>
+                </div>
+                <div class='project-detail'>
+                    <p>Recipeasy is a recipe management web app, where user can look up, create, update, and delete a recipe. The app is embedded with user authentication and authorization, so managing recipe and operating the creation, update, and deletion processes feels seamless.</p>
+                    <p>In this collaboration project, I contributed in implementing various frontend functionalities. That include the renderring process of a recipe on the homepage from the database, as well as the search and filtering functionalities.</p>
+                    <span><a href='https://github.com/cse110-fa21-group25/cse110-fa21-group25' target='blank'>Recipeasy GitHub repo</a></span>
+                </div>
+            </div>
+        </div>
+
         <div>
             <h3>Fun facts</h3>
+            <details>
+                <summary>Bucket lists</summary>
+                <ul>
+                    <li>Cliff jumping</li>
+                    <li>Skydiving</li>
+                    <li>Become a Fitness Influencer, Musician, and a <code>SoftwareEngineer();</code></li>
+                </ul>
+            </details>
             <hr>
-            <p>My favorite place to travel is <span>Bali</span>. Here are some scenic views in Bali.</p>
+            <p>My favorite place to travel is Bali. Here are some scenic views in Bali.</p>
             <picture>
                 <source srcset="bali.jpeg" media="(min-width:800px)">
                 <img src="bali.jpeg" alt="Cliff Bali">
@@ -126,44 +163,24 @@
                         <code>audio</code> element.
                 </audio>
             </figure>
-
-            <details>
-                <summary>Bucket lists</summary>
-                <ul>
-                    <li>Cliff jumping</li>
-                    <li>Skydiving</li>
-                    <li>Become a Fitness Influencer, Musician, and a <code>SoftwareEngineer();</code></li>
-                </ul>
-            </details>
+            <p>In Bali, the sun shines very bright.</p>
+            <canvas></canvas>
+            <br>
+            <p>In San Diego, the sun shines very bright.</p>
+            <svg width="200" height="100">
+                <circle cx="100" cy="50" r="50" fill="yellow" />
+            </svg>
+            <script>
+                const canvas = document.querySelector('canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = 'yellow';
+                ctx.arc(100, 75, 50, 0, 2*Math.PI);
+                ctx.fill();
+            </script>
         </div>
-        
-    </section>
-
-    <br>
-
-    <section id='miscellaneous'>
-        <h2>Miscellaneous</h2>
-        <h3>Random stuff that you may found interesting.</h3>
-        <p>In Bali, the sun shines very bright.</p>
-        <canvas></canvas>
-        <br>
-        <p>In San Diego, the sun shines very bright.</p>
-        <svg width="200" height="100">
-            <circle cx="100" cy="50" r="50" fill="yellow" />
-        </svg>
-        <script>
-            const canvas = document.querySelector('canvas');
-            const ctx = canvas.getContext('2d');
-            ctx.fillStyle = 'yellow';
-            ctx.arc(100, 75, 50, 0, 2*Math.PI);
-            ctx.fill();
-        </script>
         <form>
             <label for='name'>Name 
                 <input id='name' type="text">
-            </label>
-            <label for='comment'>Comments
-                <textarea id='comment'></textarea>
             </label>
             <label for="superpower-select">Choose a superpower</label>
             <select name="superpowers" id="superpower-select">
@@ -175,13 +192,17 @@
                     <option value='breath-under-water'>Breath under water</option>
                 </optgroup>
             </select>
-            <label for="color-choice">Choose a color:</label>
+            <label for="color-choice">Choose a color:
             <input list="colors" id="color-choice" name="color-choice" />
             <datalist id="colors">
                 <option value="Maroon">
                 <option value="Navy">
                 <option value="Beige">
             </datalist>
+            </label>
+            <label for='comment'>Comments
+                <textarea id='comment'></textarea>
+            </label>
             <fieldset>
                 <legend>Subscribe below</legend>
                 <button>Subscribe</button>
@@ -197,7 +218,28 @@
     </section>
     
     <footer>
-        <p>Copyright Reyner.</p>
+        <div>
+            <p>Copyright Reyner.</p>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <details>
+                        <summary>Contact</summary>
+                        <ul>
+                            <li>
+                                <a href = "mailto:rsantonius@ucsd.edu">
+                                    My Email
+                                </a>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href='#home'>Home</a></li>
+                <li><a href='#about'>About</a></li>
+                <li><a href="#projects-miscellaneous">Projects & Miscellaneous</a></li>
+            </ul>
+        </div>
     </footer>
 
 </body>
