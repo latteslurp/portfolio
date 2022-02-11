@@ -515,15 +515,21 @@ footer{
         position: absolute;
         margin: 0;
         padding: 0;
+        width: 100%;
+        display: inline-block;
     }
 
     .nav-ul-mobile li { 
         background-color: rgba(211, 255, 255, 0.5);
-        width: 100vw;
+        width: 100%;
         padding-left: 0;
         padding-right: 0;
     }
     
+    .nav-ul-mobile li a {
+        padding-left: 10px;
+    }
+
     #home{
         padding-bottom: 20vh;
     }
