@@ -518,9 +518,10 @@ footer{
     }
 
     .nav-ul-mobile li { 
-        padding: 10px;
         background-color: rgba(211, 255, 255, 0.5);
         width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
     }
     
     #home{
