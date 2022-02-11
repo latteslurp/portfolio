@@ -5,253 +5,243 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="index.css" rel="stylesheet">
-    <style>
-        #about{
-            border: 1px solid black;
-        }
-    </style>
-    <title>HW 2 Part 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
+    <title>Reyner's Portfolio</title>
 </head>
     <header>
-        <h1>CSE 134B HW 2 Part 2</h1>
-        <nav>
-            <ul>
-                <li><a href='#home'>Home</a></li>
-                <li><a href='#about'>About</a></li>
-                <li><a href="#projects-miscellaneous">Projects & Miscellaneous</a></li>
+        <nav class="nav-reg">
+            <ul class="nav-ul">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+            </ul>
+            <ul class="nav-ul">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="experimental.html">Experimental</a></li>
+            </ul>
+            <ul class="nav-ul">
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <label for="mobile-menu">
+            <img src="bars.svg" alt="toggle menu">
+        </label>
+        <div class="nav-div-wrapper">
+            <input type="checkbox" id="mobile-menu">
+            <nav class="nav-mobile">
+                <ul class="nav-ul-mobile">
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experiences">Experiences</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="experimental.html">Experimental</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <hr>
-    <section id='home'>
-        <h2>Reyner's Blog</h2>
-        <h3><em>Passion. Motivation. Fun.</em></h3>
-        <p>This is <strong>part 2 of HW 2</strong> of <i>CSE 134B</i>.</p>
-        <pre>
-        H               H  W                                 W       2  2
-        H               H   W               W               W      2       2
-        H               H    W             W W             W      2         2
-        H               H     W           W   W           W       2         2
-        HHHHHHHHHHHHHHHHH      W         W     W         W                 2
-        H               H       W       W       W       W                 2
-        H               H        W     W         W     W                2
-        H               H         W   W           W   W               2
-        H               H          W W             W W              2
-        H               H           W               W             22222222222222 
-        </pre> 
-    </section>
 
-    <section id='about'>
-        <h2>About Me</h2>
-        <h3>Brief intro about myself.</h3>
-        <p>My name is <b>Reyner</b>. I'm a senior studying Computer Science as my major and Music as my minor at the University of California San Diego (UCSD). I am interested in having a career in Software Engineering. I personally see Software Engineering as an outlet to build things and serve contents online to make interactions, which are fascinating since I first learned about it. The complexity of problem soving and logics that involved in it is also one of the things that spark my interest and appreciate this field.</p>
-        <p>Outside of the technology sphere, here are things I enjoy doing and also interested in:</p>
-        <ol>
-            <li>Exercise on a daily basis, mostly lift weights and calisthenics</li>
-            <li>Play music or make music in my leisure time</li>
-            <li>Watch YouTube, Premiere League, Netflix</li>
-        </ol>
-        <aside>
-            <p>With the current remote learning situation, I tried to go out more to enjoy the sun and move more, to keep my body fit and feel energized. It also helps me increase my overall productivity throughout the day.</p>
-        </aside>
-        <div id='technical-skills'>
-            <h3>Technical skills</h3>
-            <table>
-                <caption>Technical skills</caption>
-                <colgroup>
-                    <col span='1' class='entertainment'>
-                    <col span='1' class='technology'>
-                </colgroup>
-                <tr>
-                    <th scope="col">Field</th>
-                    <th scope="col">Proficiency Score</th>
-                </tr>
-                <tr>
-                    <th scope="row">Python</th>
-                    <td>9.2</td>
-                </tr>
-                <tr>
-                    <th scope="row">C/C++</th>
-                    <td>9.1</td>
-                </tr>
-                <tr>
-                    <th scope="row">Java</th>
-                    <td>8.5</td>
-                </tr>
-                <tr>
-                    <th scope="row">HTML</th>
-                    <td>9.0</td>
-                </tr>
-                <tr>
-                    <th scope="row">CSS</th>
-                    <td>8.0</td>
-                </tr>
-                <tr>
-                    <th scope="row">JavaScript</th>
-                    <td>8.0</td>
-                </tr>
-            </table>        
-        </div>
-        <div id='experiences'>
-            <h3>Experience</h3>
-            <div class='experience'>
-                <h4>Mathematics Tutor</h4>
-                <p>Laney College, Oakland CA | 2019-2020</p>
-                <ul>
-                    <li>Conducted discussion section to oversee students' understanding of class materials and promote academic success.</li>
-                    <li>Offered one-one-one tutoring session to address doubts and questions on various Mathematics courses.</li>
-                </ul>
-            </div>
-        </div>        
-    </section>
-
-    <br>
-
-    <section id='projects-miscellaneous'>
-        <h2>Projects & Miscellaneous</h2>
-        <h3>Past personal and collaboration software projects + random stuff that you may found interesting.</h3>
-
-        <div id='projects-container'>
-            <div class='project-element'>
-                <div class='project-thumbnail'>
+    <main>
+        <section id="home">
+            <div id="home-bg"></div>
+            <div id="home-content">
+                <div id="home-name">
+                    <h1>Reyner Santonius</h1>
                 </div>
-                <div class='project-detail'>
-                    <p>FitnessFormFixer is a personal web app project that analyzes user's form in a resistance training exercise. Through the integration of neural network and visualization tools, users are able to see themselves performing an exercise and get an assistance to maintain a correct form during the execution of an exercise.</p>
-                    <span><a href='http://github.com/latteslurp/FitnessFormFixer' target='blank'>FitnessFormFixer GitHub repo</a></span>
+                <div id="home-values">
+                    <div id="home-motto">
+                        <h3 class="home-shades-value"><em>Passion. Motivation. Fun.</em></h3>
+                        <h3 class="home-shades-value"><em>Passion. Motivation. Fun.</em></h3>
+                        <h3><em>Passion. Motivation. Fun.</em></h3>
+                    </div>
+                    <div id="home-logo">
+                        <img src="laptop-code.svg" alt="software logo">
+                        <img src="music.svg" alt="music logo">
+                        <img src="dumbbell.svg" alt="fitness logo">
+                    </div>
                 </div>
             </div>
-            <div class='project-element'>
-                <div class='project-thumbnail'>
-                </div>
-                <div class='project-detail'>
-                    <p>Recipeasy is a recipe management web app, where user can look up, create, update, and delete a recipe. The app is embedded with user authentication and authorization, so managing recipe and operating the creation, update, and deletion processes feels seamless.</p>
-                    <p>In this collaboration project, I contributed in implementing various frontend functionalities. That include the renderring process of a recipe on the homepage from the database, as well as the search and filtering functionalities.</p>
-                    <span><a href='https://github.com/cse110-fa21-group25/cse110-fa21-group25' target='blank'>Recipeasy GitHub repo</a></span>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <h3>Fun facts</h3>
-            <details>
-                <summary>Bucket lists</summary>
-                <ul>
-                    <li>Cliff jumping</li>
-                    <li>Skydiving</li>
-                    <li>Become a Fitness Influencer, Musician, and a <code>SoftwareEngineer();</code></li>
-                </ul>
-            </details>
-            <hr>
-            <p>My favorite place to travel is Bali. Here are some scenic views in Bali.</p>
-            <picture>
-                <source srcset="bali.jpeg" media="(min-width:800px)">
-                <img src="bali.jpeg" alt="Cliff Bali">
-            </picture>
-
-            <figure>
-                <img src="bali-sunset.jpg" alt="Sunset in Bali" />
-                <figcaption>Sunset in Bali.</figcaption>
-            </figure>
-
-            
-            <br>
-            <p>Here's a Bali travel vlog.</p>
-            <iframe width="340" height="188" 
-            src="https://www.youtube.com/embed/In4l296yhLY" 
-            title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            
-            <p>I love doing flips!</p>
-            <video controls
-            width="350"
-            height="200">
-            <source src="flashkick.mp4">
-            </video>
-
-            <figure>
-                <figcaption>Listen to the song below and have a great time :)</figcaption>
-                <audio
-                    controls
-                    src="rickroll.mp3">
-                        Your browser does not support the
-                        <code>audio</code> element.
-                </audio>
-            </figure>
-            <p>In Bali, the sun shines very bright.</p>
-            <canvas></canvas>
-            <br>
-            <p>In San Diego, the sun shines very bright.</p>
-            <svg width="200" height="100">
-                <circle cx="100" cy="50" r="50" fill="yellow" />
-            </svg>
-            <script>
-                const canvas = document.querySelector('canvas');
-                const ctx = canvas.getContext('2d');
-                ctx.fillStyle = 'yellow';
-                ctx.arc(100, 75, 50, 0, 2*Math.PI);
-                ctx.fill();
-            </script>
-        </div>
-        <form>
-            <label for='name'>Name 
-                <input id='name' type="text">
-            </label>
-            <label for="superpower-select">Choose a superpower</label>
-            <select name="superpowers" id="superpower-select">
-                <option value='default' hidden>Select</option>
-                <optgroup label='air'>
-                    <option value='fly'>Fly</option>
-                </optgroup>
-                <optgroup label='water'>
-                    <option value='breath-under-water'>Breath under water</option>
-                </optgroup>
-            </select>
-            <label for="color-choice">Choose a color:
-            <input list="colors" id="color-choice" name="color-choice" />
-            <datalist id="colors">
-                <option value="Maroon">
-                <option value="Navy">
-                <option value="Beige">
-            </datalist>
-            </label>
-            <label for='comment'>Comments
-                <textarea id='comment'></textarea>
-            </label>
-            <fieldset>
-                <legend>Subscribe below</legend>
-                <button>Subscribe</button>
-            </fieldset>
-        </form>
-
-        <template>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-            </tr>
-        </template>
-    </section>
+        </section>
     
-    <footer>
-        <div>
-            <p>Copyright Reyner.</p>
-        </div>
-        <div>
-            <ul>
-                <li>
-                    <details>
-                        <summary>Contact</summary>
+        <section id="about">
+            <h4>A brief intro about myself.</h4>
+            <h2>About Me</h2>
+            <div class="grid-container">
+                <div class="grid-item-pic">
+                    <picture>
+                        <source srcset="pp.jpeg" media="(max-width:200px)">
+                        <img src="pp.jpeg" alt="Portfolio profile picture">
+                    </picture>
+                </div>
+                <div class="grid-item-main">
+                    <p>My name is <b>Reyner</b>. I'm a senior majoring in Computer Science and minoring in Music at the University of California San Diego (UCSD). I am interested in having a career in Software Engineering. I personally see Software Engineering as an outlet to build things and serve contents online to make interactions, which are fascinating since I first learned about it. The problem soving and logics aspects that involved in it is also one of the things that spark my interest.</p>
+                </div>
+                <div class="grid-item-other">
+                    <aside>
+                        <p>With the current remote learning situation, I tried to go out more to enjoy the sun and move more, to keep my body fit and feel energized. It also helps me increase my overall productivity throughout the day.</p>
+                    </aside> 
+                    <p>Outside of the technology sphere, here are things I enjoy doing and also interested in:</p>
+                    <ol>
+                        <li>Exercise on a daily basis, mostly lift weights and calisthenics</li>
+                        <li>Play music or make music in my leisure time</li>
+                        <li>Watch YouTube, Premiere League, Netflix</li>
+                    </ol>       
+                </div>
+            </div>
+        </section>
+    
+        <section id="experiences">
+            <h2>Experiences</h2>
+            <div class="work-hist">
+                <h3>Work History</h3>
+                <div class="experience-card">
+                    <div class="experience-card-title">
+                        <h4>Mathematics Tutor</h4>
+                        <p><i>Laney College, Oakland CA | 2019-2020</i></p>
+                    </div>
+                    <div class="experience-card-desc">
                         <ul>
+                            <li>Conducted discussion section to oversee students' understanding of class materials and promote academic success.</li>
+                            <li>Offered one-one-one tutoring session to address doubts and questions on various Mathematics courses.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="technical-skills">
+                <h3>Technical skills</h3>
+                <p><i>Technology acumen including programming languages, frameworks, and software tools</i></p>
+                <table class="table-skills">
+                    <tbody>
+                        <tr>
+                            <th scope="col" class="column-expertise">Expertise</th>
+                            <th scope="col" class="column-tech">Technology</th>
+                        </tr>
+                        <tr>
+                            <td class="skill-table-level-proficient">Proficient</td>
+                            <td class="skill-table-tools-proficient">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Python</td>
+                                        </tr>
+                                        <tr>
+                                            <td>C/C++</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HTML</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CSS</td>
+                                        </tr>
+                                        <tr>
+                                            <td>JavaScript</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Java</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="skill-table-level-familiar">Familiar</td>
+                            <td class="skill-table-tools-familiar">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>PyTorch</td>
+                                        </tr>
+                                        <tr>
+                                            <td>React.js</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MySQL</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MongoDB</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>        
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <h4>Some of my past personal and collaboration software projects.</h4>
+
+            <div id="grid-projects-container">
+                <div class="project-element-grid-container-2">
+                    <div class="grid-item-project-thumbnail">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/WXlDG_hzE0E" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <h3>FitnessFormFixer</h3>
+                    </div>
+                    <div class="grid-item-project-detail">
+                        <div class="project-desc">
+                            <p>As the name may suggest, FitnessFormFixer is a personal web app project that analyzes user's form in a resistance training exercise. Through the integration of neural network and visualization tools, users are able to see themselves performing an exercise and get an assistance to maintain a correct form during the execution of an exercise.</p>
+                        </div>
+                        <div class="project-github">
+                            <a href="http://github.com/latteslurp/FitnessFormFixer" target="blank">GitHub repo
+                            <img src="github.svg" alt="github logo"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-element-grid-container-2">
+                    <div class="grid-item-project-thumbnail">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/CJofgszQDRQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <h3>Recipeasy</h3>
+                    </div>
+                    <div class="grid-item-project-detail">
+                        <div class="project-desc">
+                            <p>Recipeasy is a recipe management web app, where user can look up, create, update, and delete a recipe.</p>
+                            <p>In this collaboration, I contributed in implementing various frontend functionalities, which include the renderring process of a recipe on the homepage from the database, as well as the search and filtering functionalities.</p>
+                        </div>
+                        <div class="project-github">
+                            <!-- <input type="button">abc -->
+                            <a href="https://github.com/cse110-fa21-group25/cse110-fa21-group25" target="blank">GitHub repo
+                            <img src="github.svg" alt="github logo"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+
+    <footer>
+        <div class="grid-container-footer">
+            <div class="grid-item-footer-copyright">
+                <p>Copyright Reyner.</p>
+            </div>
+            <div class="grid-item-footer-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experiences">Experiences</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="experimental.html">Experimental</a></li>
+                    <li>
+                        <ul class="contact-list">
                             <li>
                                 <a href = "mailto:rsantonius@ucsd.edu">
                                     My Email
                                 </a>
                             </li>
                         </ul>
-                    </details>
-                </li>
-                <li><a href='#home'>Home</a></li>
-                <li><a href='#about'>About</a></li>
-                <li><a href="#projects-miscellaneous">Projects & Miscellaneous</a></li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </footer>
 
