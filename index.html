@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
+    <script src="./index.js"></script>
     <title>Reyner's Portfolio</title>
 </head>
     <header>
@@ -85,14 +86,14 @@
                 </div>
                 <div class="grid-item-other">
                     <aside>
-                        <p>With the current remote learning situation, I tried to go out more to enjoy the sun and move more, to keep my body fit and feel energized. It also helps me increase my overall productivity throughout the day.</p>
+                        <p>With the current remote learning situation, I try to go outside and move more, to keep my body fit and feel energized. It also helps me increase my overall productivity throughout the day.</p>
                     </aside> 
-                    <p>Outside of the technology sphere, here are things I enjoy doing and also interested in:</p>
+                    <p>Outside of the technology sphere, here are things I also enjoy doing and interested in:</p>
                     <ol>
                         <li>Exercise on a daily basis, mostly lift weights and calisthenics</li>
                         <li>Play music or make music in my leisure time</li>
                         <li>Watch YouTube, Premiere League, Netflix</li>
-                    </ol>       
+                    </ol>     
                 </div>
             </div>
         </section>
@@ -109,7 +110,7 @@
                     <div class="experience-card-desc">
                         <ul>
                             <li>Conducted discussion section to oversee students' understanding of class materials and promote academic success.</li>
-                            <li>Offered one-one-one tutoring session to address doubts and questions on various Mathematics courses.</li>
+                            <li>Offered one-one-one tutoring session to address doubts and questions in various Mathematics courses.</li>
                         </ul>
                     </div>
                 </div>
@@ -180,46 +181,54 @@
         <section id="projects">
             <h2>Projects</h2>
             <h4>Some of my past personal and collaboration software projects.</h4>
-
-            <div id="grid-projects-container">
-                <div class="project-element-grid-container-2">
-                    <div class="grid-item-project-thumbnail">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/WXlDG_hzE0E" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <h3>FitnessFormFixer</h3>
-                    </div>
-                    <div class="grid-item-project-detail">
-                        <div class="project-desc">
-                            <p>As the name may suggest, FitnessFormFixer is a personal web app project that analyzes user's form in a resistance training exercise. Through the integration of neural network and visualization tools, users are able to see themselves performing an exercise and get an assistance to maintain a correct form during the execution of an exercise.</p>
+            <div class="slider">
+                <a class="prev-slide">&#10094;</a>
+                <a class="next-slide">&#10095;</a>
+                <section id="projects-container">
+                    <div class="project-element-grid-container-2">
+                        <div class="grid-item-project-thumbnail">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/WXlDG_hzE0E" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <h3>FitnessFormFixer</h3>
                         </div>
-                        <div class="project-github">
-                            <!-- work cited: https://github.com/FortAwesome/Font-Awesome -->
-                            <a href="http://github.com/latteslurp/FitnessFormFixer" target="blank">GitHub repo
-                            <img src="github.svg" alt="github logo"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-element-grid-container-2">
-                    <div class="grid-item-project-thumbnail">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/CJofgszQDRQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <h3>Recipeasy</h3>
-                    </div>
-                    <div class="grid-item-project-detail">
-                        <div class="project-desc">
-                            <p>Recipeasy is a recipe management web app, where user can look up, create, update, and delete a recipe.</p>
-                            <p>In this collaboration, I contributed in implementing various frontend functionalities, which include the renderring process of a recipe on the homepage from the database, as well as the search and filtering functionalities.</p>
-                        </div>
-                        <div class="project-github">
-                            <!-- work cited: https://github.com/FortAwesome/Font-Awesome -->
-                            <a href="https://github.com/cse110-fa21-group25/cse110-fa21-group25" target="blank">GitHub repo
-                            <img src="github.svg" alt="github logo"></a>
+                        <div class="grid-item-project-detail">
+                            <div class="project-desc">
+                                <p>As the name may suggest, FitnessFormFixer is a personal web app project that analyzes user's form in a resistance training exercise. Through the integration of neural network and visualization tools, users are able to see themselves performing an exercise and get an assistance to maintain a correct form during the execution of an exercise.</p>
+                            </div>
+                            <div class="project-github">
+                                <!-- work cited: https://github.com/FortAwesome/Font-Awesome -->
+                                <a href="http://github.com/latteslurp/FitnessFormFixer" target="blank">GitHub repo
+                                <img src="github.svg" alt="github logo"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="project-element-grid-container-2" style="visibility: hidden;">
+                        <div class="grid-item-project-thumbnail">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/CJofgszQDRQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <h3>Recipeasy</h3>
+                        </div>
+                        <div class="grid-item-project-detail">
+                            <div class="project-desc">
+                                <p>Recipeasy is a recipe management web app, where user can look up, create, update, and delete a recipe.</p>
+                                <p>In this collaboration, I contributed in implementing various frontend functionalities, which include the renderring process of a recipe on the homepage from the database, as well as the search and filtering functionalities.</p>
+                            </div>
+                            <div class="project-github">
+                                <!-- work cited: https://github.com/FortAwesome/Font-Awesome -->
+                                <a href="https://github.com/cse110-fa21-group25/cse110-fa21-group25" target="blank">GitHub repo
+                                <img src="github.svg" alt="github logo"></a>
+                            </div>
+                        </div>
+                    </div>  
+                </section>
+                <section class="slide-nums-holder">
+                    <span class="slide-num active-slide">1</span>
+                    <span class="slide-num">2</span>
+                </section>
             </div>
         </section>
 
     </main>
     
+
 
     <footer>
         <div class="grid-container-footer">

@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+button{
+    cursor: pointer;
+}
+
+ul ~ button {
+    border: none;
+    border-radius: 1px;
+    background-color: rgb(208, 232, 255);
+    color: #000;
+    padding: 5px;
+    box-shadow: 0px .5px 2px .5px rgba(0,0,0,.5);
+    position: relative;
+    margin: 20px auto;
+    display: block;
+    font-size: 1rem;
+}
+
+dialog{
+    margin: auto auto;
+    padding: 10px;
+}
+
+ul{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    list-style: none;
+}
+
+.blog{
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(234, 250, 253);
+    border-radius: 8px 8px 8px 8px;
+    max-width: 550px;
+    width: 50vw;
+    overflow-wrap: break-word;
+}
+
+.blog-date{
+    color: #888;
+    font-style: italic;
+    font-size: .9em;
+}
+
+.blog-summary{
+    padding-top: 1ch;
+    padding-bottom: 1ch;
+}
+
+.dialog-on{
+    border-radius: 2%;
+    border: .5px solid rgba(0,0,0,.5);
+    box-shadow: 0 3px 2px 1px rgba(0,0,0,.3);
+}
+
+.dialog-on form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 50vw;
+    max-width: 400px;
+}
+
+.dialog-on form input{
+    width: 100%;
+}
+
+.dialog-on form textarea{
+    width: 100%;
+    height: 50vh;
+    max-height: 300px;
+}
+
+.dialog-on form label{
+    font-weight: bold;
+}
+
+.dialog-on form h3{
+    padding: 10px;
+}
+
+.cancel-btn, .confirm-btn, .cancel-btn-delete, .confirm-btn-delete{
+    padding: 5px;
+    margin: 5px 5px 0px 5px;
+    border: none;
+    box-shadow: 0px 1.1px 1px .2px rgba(0,0,0,.5);
+    font-size: 1rem;
+    border-radius: 1px;
+}
+
+.cancel-btn{
+    background-color: rgb(250, 121, 107);
+    color: #fff;
+}
+
+.confirm-btn{
+    background-color: rgb(101, 167, 230);
+    color: #fff;
+}
+
+.cancel-btn-delete{
+    background-color: rgb(156, 156, 156);
+    color: #fff;
+}
+
+.confirm-btn-delete{
+    background-color: rgb(230, 101, 101);
+    color: #fff;
+}
+
+.edit-post-btn, .delete-post-btn{
+    margin: 0 5px 0 0;
+    border: none;
+    background-color: inherit;
+}
+
+.edit-post-btn{
+    width: 3em;
+    padding: 1ch;
+}
+
+.delete-post-btn{
+    width: 2.8em;
+    padding: 1ch;
+}
