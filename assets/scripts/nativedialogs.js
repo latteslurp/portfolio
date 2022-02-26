@@ -32,7 +32,7 @@ function init(){
                     val = prompt('Enter prompt');
                     if (val){
                         let cleanVal = DOMPurify.sanitize(val);
-                        output.innerHTML = cleanVal;
+                        output.innerHTML = `The value returned by the confirm method is : ${cleanVal}`
                     }
                     else{
                         output.innerHTML = `User didn\’t enter anything`;

@@ -81,11 +81,11 @@ function generateCard(idx){
     pDate.className = 'blog-date';
 
     const btnEdit = document.createElement('button');
-    btnEdit.innerHTML = '<img src="./pen-to-square.svg" alt="Edit logo">';
+    btnEdit.innerHTML = '<img src="./assets/icons/pen-to-square.svg" alt="Edit logo">';
     btnEdit.className = 'edit-post-btn';
     
     const btnDelete = document.createElement('button');
-    btnDelete.innerHTML = '<img src="./trash-can.svg" alt="Delete logo">';
+    btnDelete.innerHTML = '<img src="./assets/icons/trash-can.svg" alt="Delete logo">';
     btnDelete.className = 'delete-post-btn';
     
     const divBlogCard = document.createElement('div');
