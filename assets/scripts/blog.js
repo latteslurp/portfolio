@@ -1,15 +1,15 @@
 window.addEventListener('DOMContentLoaded', init);
 
-let blogs;
+let HW4_blogs;
 
 function init(){
-    // get blogs stored in local storage if we have one, otherwise set blogs to an empty array
-    if ('blogs' in localStorage){
-        blogs = JSON.parse(localStorage.blogs);
+    // get HW4_blogs stored in local storage if we have one, otherwise set HW4_blogs to an empty array
+    if ('HW4_blogs' in localStorage){
+        HW4_blogs = JSON.parse(localStorage.HW4_blogs);
     }
     else{
-        blogs=[];
-        localStorage.setItem('blogs', JSON.stringify(blogs));
+        HW4_blogs=[];
+        localStorage.setItem('HW4_blogs', JSON.stringify(HW4_blogs));
     }
 
     // add all existing blog posts to crud.html
@@ -46,34 +46,34 @@ function addToLocStorage(){
     
     const date = Date();
     const key = `${cleanTitle}-${date}`;
-    // add data to blogs array
-    blogs.push({'title': cleanTitle, 
+    // add data to HW4_blogs array
+    HW4_blogs.push({'title': cleanTitle, 
                 'summary': cleanSummary,
                 'date': date,
                 'key': key});
-    // update local storage's blogs array
-    localStorage.blogs = JSON.stringify(blogs);
+    // update local storage's HW4_blogs array
+    localStorage.HW4_blogs = JSON.stringify(HW4_blogs);
     // add newly added post to crud.html
-    generateCard(blogs.length-1);
+    generateCard(HW4_blogs.length-1);
 }
 
 /**
  * Helper function to add card post to HTML
- * @param {Number} idx - blogs' idx in the storage array
+ * @param {Number} idx - HW4_blogs' idx in the storage array
  */
 function generateCard(idx){
     const ulBlogs = document.querySelector('ul');
 
     const liBlog = document.createElement('li');
 
-    const cleanTitle = blogs[idx].title;
-    const cleanSummary = blogs[idx].summary;
+    const cleanTitle = HW4_blogs[idx].title;
+    const cleanSummary = HW4_blogs[idx].summary;
     const h2Title = document.createElement('h2');
     h2Title.innerHTML = cleanTitle;
     const pSummary = document.createElement('p');
     pSummary.innerHTML = cleanSummary; 
     const pDate = document.createElement('p');
-    pDate.innerText = blogs[idx].date;
+    pDate.innerText = HW4_blogs[idx].date;
 
     const btnEdit = document.createElement('button');
     btnEdit.innerHTML = 'Edit';
@@ -95,12 +95,12 @@ function generateCard(idx){
     
     btnEdit.addEventListener('click', (e)=>{
         e.preventDefault();
-        editBlog(cleanTitle, cleanSummary, blogs[idx].key);
+        editBlog(cleanTitle, cleanSummary, HW4_blogs[idx].key);
     }, false);
 
     btnDelete.addEventListener('click', (e)=>{
         e.preventDefault();
-        deleteBlog(blogs[idx].key);
+        deleteBlog(HW4_blogs[idx].key);
     }, false);
 }
 
@@ -162,16 +162,16 @@ function editBlog(oldTitle, oldSummary, key){
         const cleanTitle = DOMPurify.sanitize(inputTitle.value);
         const cleanSummary = DOMPurify.sanitize(inputSummary.value);
 
-        for (let i=0; i<blogs.length; i++){
+        for (let i=0; i<HW4_blogs.length; i++){
             // console.log(el);
-            if (blogs[i].key === key){
-                blogs[i].title=cleanTitle;
-                blogs[i].date = Date();
-                blogs[i].summary = cleanSummary;
-                // console.log(blogs[i]);
+            if (HW4_blogs[i].key === key){
+                HW4_blogs[i].title=cleanTitle;
+                HW4_blogs[i].date = Date();
+                HW4_blogs[i].summary = cleanSummary;
+                // console.log(HW4_blogs[i]);
                 cleanList();
                 fetchData();
-                localStorage.blogs = JSON.stringify(blogs);
+                localStorage.HW4_blogs = JSON.stringify(HW4_blogs);
                 dialogEdit.remove();
                 break;
             }
@@ -194,8 +194,8 @@ function cleanList(){
  * Fetch all data to HTML
  */
 function fetchData(){
-    // console.log(blogs);
-    for(let i=0; i<blogs.length; i++){
+    // console.log(HW4_blogs);
+    for(let i=0; i<HW4_blogs.length; i++){
         generateCard(i);
     }
 }
@@ -229,13 +229,13 @@ function deleteBlog(key){
 
     confirmDelete.addEventListener('click', ()=>{
         dialogDelete.close();
-        for (let i=0; i<blogs.length; i++){
+        for (let i=0; i<HW4_blogs.length; i++){
             // console.log(el);
-            if (blogs[i].key === key){
-                blogs.splice(i,1);
+            if (HW4_blogs[i].key === key){
+                HW4_blogs.splice(i,1);
                 cleanList();
                 fetchData();
-                localStorage.blogs = JSON.stringify(blogs);
+                localStorage.HW4_blogs = JSON.stringify(HW4_blogs);
                 dialogDelete.remove();
                 break;
             }

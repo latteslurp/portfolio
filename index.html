@@ -194,8 +194,8 @@
             <h2>Projects</h2>
             <h4>Some of my past personal and collaboration software projects.</h4>
             <div class="slider">
-                <a class="prev-slide">&#10094;</a>
-                <a class="next-slide">&#10095;</a>
+                <a class="prev-slide" onclick="moveSlide(1)">&#10094;</a>
+                <a class="next-slide" onclick="moveSlide(-1)">&#10095;</a>
                 <section class="projects-container">
                     <div class="project-element-grid-container-2">
                         <div class="grid-item-project-thumbnail">
@@ -232,8 +232,8 @@
                     </div>  
                 </section>
                 <div class="slide-nums-holder">
-                    <span class="slide-num active-slide">1</span>
-                    <span class="slide-num">2</span>
+                    <span onclick="updateSlide(0)" class="slide-num active-slide">1</span>
+                    <span onclick="updateSlide(1)" class="slide-num">2</span>
                 </div>
             </div>
         </section>

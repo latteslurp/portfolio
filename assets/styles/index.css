@@ -293,8 +293,7 @@ aside {
     margin: 10px;
     grid-row: auto;
     grid-column: auto;
-    /* grid-row: 1;
-    grid-column: 1; */
+    visibility: visible;
     display: grid;
     grid-auto-flow: column;
     height: auto;
@@ -369,6 +368,7 @@ a.prev-slide-js, a.next-slide-js {
     position: absolute;
     top: 40%;
     z-index: 999;
+    padding: 0;
     display: block;
     margin: auto;
     width: auto;
