@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Test</title>
+</head>
+<body>
+    
+    <fieldset>
+        <legend>Select preference</legend>
+        <form>
+            <input type="radio" name="preference" value="Fetch">Fetch
+            <input type="radio" name="preference" value="XMLHttpRequest">XMLHttpRequest
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>New Article</legend>
+        <form action="#">
+            <label for="article-id">ID</label>
+            <input type="text" id="article-id">
+
+            <label for="article-name">Name</label>
+            <input type="text" id="article-name">
+
+            <label for="article-body">Body</label>
+            <textarea id="article-body"></textarea>
+
+            <input type="date" id="article-date">
+
+            <button value="post">Post</button>
+            <button value="get">Get</button>
+            <button value="put">Put</button>
+            <button value="delete">Delete</button>
+        </form>
+    </fieldset>
+
+    <output></output>
+
+    <script src="assets/scripts/methodtest.js"></script>
+    <!-- DOMPurify cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.6/purify.min.js" integrity="sha512-DJjvM/U3zCRpzrYboJgg23iLHapWcS2rlo7Ni18Cdv+FMs6b3gUF7hQihztj4uVkHHfUwk7dha97jVzRqUJ7hg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

@@ -45,17 +45,17 @@ function defaultDisplay(){
         projectElements[i].style.visibility = 'visible';
     }
 
-    const aPrevSlide = document.querySelector('.slider a');
-    if (aPrevSlide.classList.contains('prev-slide-js')){
-        aPrevSlide.classList.remove('prev-slide-js');
+    const spanPrevSlide = document.querySelector('.slider span');
+    if (spanPrevSlide.classList.contains('prev-slide-js')){
+        spanPrevSlide.classList.remove('prev-slide-js');
     }
-    aPrevSlide.classList.add('prev-slide');
+    spanPrevSlide.classList.add('prev-slide');
     
-    const aNextSlide = document.querySelector('.slider a:nth-child(2)');
-    if (aNextSlide.classList.contains('next-slide-js')){
-        aNextSlide.classList.remove('next-slide-js');
+    const spanNextSlide = document.querySelector('.slider span:nth-child(2)');
+    if (spanNextSlide.classList.contains('next-slide-js')){
+        spanNextSlide.classList.remove('next-slide-js');
     }
-    aNextSlide.classList.add('next-slide');
+    spanNextSlide.classList.add('next-slide');
 
     const divSlideNumsHolder = document.querySelector('.slider section + div');
     if (divSlideNumsHolder.classList.contains('slide-nums-holder-js')){
@@ -82,17 +82,17 @@ function changeDisplay(){
         projectElements[i].classList.add('project-element-grid-container-2-js');
     }
 
-    const aPrevSlide = document.querySelector('.slider a:nth-child(1)');
-    if (aPrevSlide.classList.contains('prev-slide')){
-        aPrevSlide.classList.remove('prev-slide');
+    const spanPrevSlide = document.querySelector('.slider span:nth-child(1)');
+    if (spanPrevSlide.classList.contains('prev-slide')){
+        spanPrevSlide.classList.remove('prev-slide');
     }
-    aPrevSlide.classList.add('prev-slide-js');
+    spanPrevSlide.classList.add('prev-slide-js');
     
-    const aNextSlide = document.querySelector('.slider a:nth-child(2)');
-    if (aNextSlide.classList.contains('next-slide')){
-        aNextSlide.classList.remove('next-slide');
+    const spanNextSlide = document.querySelector('.slider span:nth-child(2)');
+    if (spanNextSlide.classList.contains('next-slide')){
+        spanNextSlide.classList.remove('next-slide');
     }
-    aNextSlide.classList.add('next-slide-js');
+    spanNextSlide.classList.add('next-slide-js');
 
     const divSlideNumsHolder = document.querySelector('.slider section + div');
     if (divSlideNumsHolder.classList.contains('slide-nums-holder')){

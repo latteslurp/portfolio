@@ -1,5 +1,23 @@
 # Changes Description
 
+## HW 5
+While the Lighthouse report indicates no major issue in any of the metrics that are being used to measure overall score of site performance (with an average score above 90), I try to adapt further imporvements to improve upon it. These includes the following:
+
+- Performance 
+    - Convert a jpeg image to webp
+    - Set explicit width and height to image elements
+- Accessibilty
+    - Change color of experience card title p element
+    - Change heading in home, about, and projects sections
+- SEO
+    - Added meta description to index.html
+    - Change slider arrows on project slides from a to span element
+
+I also made some minor changes to the design (beyond what mentioned above), which are:
+- Text color change to h3 elements on about and projects sections 
+- Change background colors of home and experience sections
+
+## HW 4
 In this HW, I decided to make a slider/slideshow on the project section of my portfolio. To achieve this, I made some modifications slightly on the HTML file e.g., added new elements and class namings, and also the overall styling in the CSS file e.g., the way the project card displayed as a stack of "slides". Furthermore, I used window event listener to detect window dimension changes. The slider operates as follows:
 - Click on either buttons to proceed or go back to previous slides (allows wrap around) to go to the desired project card
 - Click on the slide number to go to the desired project card

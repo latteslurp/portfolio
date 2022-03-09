@@ -4,23 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio site">
     <link href="./assets/styles/index.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans" rel="stylesheet">
-    <script src="./assets/scripts/index.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- Get insights of user's behavior/actions when they visit this side -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CWW73PQQ9J"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-CWW73PQQ9J');
-    </script>
-
     <title>Reyner's Portfolio</title>
 </head>
     <header>
@@ -69,9 +57,9 @@
                 </div>
                 <div id="home-values">
                     <div id="home-motto">
-                        <h3 class="home-shades-value"><em>Passion. Motivation. Fun.</em></h3>
-                        <h3 class="home-shades-value"><em>Passion. Motivation. Fun.</em></h3>
-                        <h3><em>Passion. Motivation. Fun.</em></h3>
+                        <h2 class="home-shades-value"><em>Passion. Motivation. Fun.</em></h2>
+                        <h2 class="home-shades-value"><em>Passion. Motivation. Fun.</em></h2>
+                        <h2><em>Passion. Motivation. Fun.</em></h2>
                     </div>
                     <div id="home-logo">
                         <!-- work cited: https://github.com/FortAwesome/Font-Awesome -->
@@ -84,13 +72,13 @@
         </section>
     
         <section id="about">
-            <h4>A brief intro about myself.</h4>
             <h2>About Me</h2>
+            <h3>A brief intro about myself.</h3>
             <div class="grid-container">
                 <div class="grid-item-pic">
                     <picture>
-                        <source srcset="./assets/media/pp.jpeg" media="(max-width:200px)">
-                        <img src="./assets/media/pp.jpeg" alt="Portfolio profile picture">
+                        <source srcset="./assets/media/pp.webp" media="(max-width:200px)">
+                        <img src="./assets/media/pp.webp" alt="Portfolio profile picture">
                     </picture>
                 </div>
                 <div class="grid-item-main">
@@ -192,10 +180,10 @@
 
         <section id="projects">
             <h2>Projects</h2>
-            <h4>Some of my past personal and collaboration software projects.</h4>
+            <h3>Some of my past personal and collaboration software projects.</h3>
             <div class="slider">
-                <a class="prev-slide" onclick="moveSlide(1)">&#10094;</a>
-                <a class="next-slide" onclick="moveSlide(-1)">&#10095;</a>
+                <span class="prev-slide" onclick="moveSlide(1)">&#10094;</span>
+                <span class="next-slide" onclick="moveSlide(-1)">&#10095;</span>
                 <section class="projects-container">
                     <div class="project-element-grid-container-2">
                         <div class="grid-item-project-thumbnail">
@@ -264,6 +252,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="./assets/scripts/index.js"></script>
 
 </body>
 </html>
