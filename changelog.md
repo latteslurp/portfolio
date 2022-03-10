@@ -13,7 +13,7 @@ While the Lighthouse report indicates no major issue in any of the metrics that 
     - Added meta description to index.html
     - Change slider arrows on project slides from a to span element
 
-I also made some minor changes to the design (beyond what mentioned above), which are:
+I also made some minor changes to the design (beyond what mentioned above), which include the following:
 - Text color change to h3 elements on about and projects sections 
 - Change background colors of home and experience sections
 
