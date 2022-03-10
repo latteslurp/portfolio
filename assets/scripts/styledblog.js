@@ -31,7 +31,7 @@ function init(){
     });
 
     const btnCancelPost = document.querySelector('.cancel-btn');
-    btnCancelPost.addEventListener('click', ()=>{
+    btnCancelPost.addEventListener('click', (e)=>{
         e.preventDefault();
         dialogForm.close();
     });
@@ -45,12 +45,12 @@ function addToLocStorage(){
     const cleanTitle = DOMPurify.sanitize(titlePost.value);
     const cleanSummary = DOMPurify.sanitize(summaryPost.value);
     if (cleanTitle && cleanSummary){
-        const date = Date();
+        const date = new Date().toJSON().slice(0,10);
         const key = `${cleanTitle}-${date}`;
         // add data to HW4_styledBlogs array
         HW4_styledBlogs.push({'title': cleanTitle, 
                     'summary': cleanSummary,
-                    'date': date,
+                    'date': `Posted ${date}`,
                     'key': key});
         // update local storage's HW4_styledBlogs array
         localStorage.HW4_styledBlogs = JSON.stringify(HW4_styledBlogs);
@@ -161,7 +161,8 @@ function editBlog(oldTitle, oldSummary, key){
     dialogEdit.showModal();
 
 
-    cancelEdit.addEventListener('click', ()=>{
+    cancelEdit.addEventListener('click', (e)=>{
+        e.preventDefault();
         dialogEdit.close();
         dialogEdit.remove();
     });
@@ -177,7 +178,7 @@ function editBlog(oldTitle, oldSummary, key){
                 // console.log(el);
                 if (HW4_styledBlogs[i].key === key){
                     HW4_styledBlogs[i].title=cleanTitle;
-                    HW4_styledBlogs[i].date = Date();
+                    HW4_styledBlogs[i].date = `Edited ${new Date().toJSON().slice(0,10)}`;
                     HW4_styledBlogs[i].summary = cleanSummary;
                     // console.log(HW4_styledBlogs[i]);
                     cleanList();
