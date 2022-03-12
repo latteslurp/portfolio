@@ -83,10 +83,7 @@ function authLogIn(){
         const email = inputEmail.value;
         const password = inputPassword.value;
         firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            // ...
+        .then(() => {
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
                     window.location.reload();
@@ -96,11 +93,53 @@ function authLogIn(){
                 });
         })
         .catch((error) => {
-            const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
             showError(spanError, errorMessage);
         });
+    });
+
+    inputEmail.addEventListener('keypress', (e)=>{
+        if(e.key === 'Enter'){
+            e.preventDefault();
+            const email = inputEmail.value;
+            const password = inputPassword.value;
+            firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(() => {
+                firebase.auth().onAuthStateChanged((user) => {
+                    if (user) {
+                        window.location.reload();
+                        dialogLogin.close();
+                        dialogLogin.remove();
+                    }
+                    });
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                showError(spanError, errorMessage);
+            });
+        }
+    });
+
+    inputPassword.addEventListener('keypress', (e)=>{
+        if(e.key === 'Enter'){
+            e.preventDefault();
+            const email = inputEmail.value;
+            const password = inputPassword.value;
+            firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(() => {
+                firebase.auth().onAuthStateChanged((user) => {
+                    if (user) {
+                        window.location.reload();
+                        dialogLogin.close();
+                        dialogLogin.remove();
+                    }
+                    });
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                showError(spanError, errorMessage);
+            });
+        }
     });
 }
 
@@ -152,9 +191,7 @@ function logOut(){
             });
         })
         .catch((error) => {
-            const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
             showError(spanError, errorMessage);
         });
     });
