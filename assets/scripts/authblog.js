@@ -1,9 +1,7 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init(){
-
     login();
-    
 }
 
 function login(){

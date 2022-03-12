@@ -4,9 +4,6 @@ let HW5_styledBlogs;
 const db = firebase.firestore();
 
 async function init(){
-
-    // indicate whether user logged in or not
-    
     // add all existing blog posts to crud.html
     HW5_styledBlogs = await fetchData();
     populateBlogs();
@@ -209,16 +206,6 @@ async function editBlog(oldTitle, oldSummary, li, id){
         }
     });
 
-}
-
-/**
- * Helper function to clear up all blog posts
- */
-function cleanList(){
-    const ulBlogs = document.querySelector('ul.blog-list');
-    while(ulBlogs.hasChildNodes()){
-        ulBlogs.removeChild(ulBlogs.lastChild);
-    }
 }
 
 /**
