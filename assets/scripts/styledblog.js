@@ -1,40 +1,51 @@
 window.addEventListener('DOMContentLoaded', init);
 
-let HW4_styledBlogs;
+let HW5_styledBlogs;
+const db = firebase.firestore();
 
-function init(){
-    // get HW4_styledBlogs stored in local storage if we have one, otherwise set HW4_styledBlogs to an empty array
-    if ('HW4_styledBlogs' in localStorage){
-        HW4_styledBlogs = JSON.parse(localStorage.HW4_styledBlogs);
+async function init(){
+
+    // indicate whether user logged in or not
+    
+    // add all existing blog posts to crud.html
+    HW5_styledBlogs = await fetchData();
+    populateBlogs();
+    
+    const loginBtn = document.querySelector('nav ul li button');
+    const btnAddPost = document.querySelector('ul.blog-list ~ button');
+    const user = firebase.auth().currentUser;
+    if (user !== null){
+        const email = user.email;
+        loginBtn.innerText = `Hello, ${email}`;
+        loginBtn.classList.add('logout-style');
+        
+        const dialogForm = document.querySelector('#blog-dialog');
+        
+        btnAddPost.classList.remove('d-none');
+
+        btnAddPost.addEventListener('click', ()=>{
+            dialogForm.showModal();
+            dialogForm.classList.add('dialog-on');
+        });
+    
+        const btnConfirmPost = document.querySelector('#add-confirm-btn');
+        btnConfirmPost.addEventListener('click', (e)=>{
+            e.preventDefault();
+            addToLocStorage();
+            dialogForm.close();
+        });
+    
+        const btnCancelPost = document.querySelector('.cancel-btn');
+        btnCancelPost.addEventListener('click', (e)=>{
+            e.preventDefault();
+            dialogForm.close();
+        });
     }
     else{
-        HW4_styledBlogs=[];
-        localStorage.setItem('HW4_styledBlogs', JSON.stringify(HW4_styledBlogs));
+        btnAddPost.classList.add('d-none');
+        loginBtn.classList.remove('logout-style');
     }
 
-    // add all existing blog posts to crud.html
-    fetchData();
-
-    const btnAddPost = document.querySelector('ul ~ button');
-    const dialogForm = document.querySelector('#blog-dialog');
-
-    btnAddPost.addEventListener('click', ()=>{
-        dialogForm.showModal();
-        dialogForm.classList.add('dialog-on');
-    });
-
-    const btnConfirmPost = document.querySelector('#add-confirm-btn');
-    btnConfirmPost.addEventListener('click', (e)=>{
-        e.preventDefault();
-        addToLocStorage();
-        dialogForm.close();
-    });
-
-    const btnCancelPost = document.querySelector('.cancel-btn');
-    btnCancelPost.addEventListener('click', (e)=>{
-        e.preventDefault();
-        dialogForm.close();
-    });
 }
 /**
  * Append newly added post to data storage and HTML
@@ -44,32 +55,35 @@ function addToLocStorage(){
     const summaryPost = document.querySelector('#summary');
     const cleanTitle = DOMPurify.sanitize(titlePost.value);
     const cleanSummary = DOMPurify.sanitize(summaryPost.value);
+    const cleanDate = new Date();
+    const email = firebase.auth().currentUser.email;
     if (cleanTitle && cleanSummary){
-        const date = new Date().toJSON().slice(0,10);
-        const key = `${cleanTitle}-${date}`;
-        // add data to HW4_styledBlogs array
-        HW4_styledBlogs.push({'title': cleanTitle, 
-                    'summary': cleanSummary,
-                    'date': `Posted ${date}`,
-                    'key': key});
-        // update local storage's HW4_styledBlogs array
-        localStorage.HW4_styledBlogs = JSON.stringify(HW4_styledBlogs);
-        // add newly added post to crud.html
-        generateCard(HW4_styledBlogs.length-1);
+        db.collection('blogs').add({
+            title: cleanTitle,
+            summary: cleanSummary,
+            date: cleanDate,
+            dateString: `Posted ${cleanDate.toJSON().slice(0,10)} by ${email}`
+        })
+        .then(()=>{
+            window.location.reload();
+        })
+        .catch((e)=>{
+            console.error('Error in creating blog: ', e);
+        });
     }
 }
 
 /**
  * Helper function to add card post to HTML
- * @param {Number} idx - HW4_styledBlogs' idx in the storage array
+ * @param {String} id - HW4_styledBlogs' id in the object retrieved from database
  */
-function generateCard(idx){
-    const ulBlogs = document.querySelector('ul');
+function generateCard(id){
+    const ulBlogs = document.querySelector('ul.blog-list');
 
     const liBlog = document.createElement('li');
 
-    const cleanTitle = HW4_styledBlogs[idx].title;
-    const cleanSummary = HW4_styledBlogs[idx].summary;
+    const cleanTitle = HW5_styledBlogs[id].title;
+    const cleanSummary = HW5_styledBlogs[id].summary;
     const h2Title = document.createElement('h2');
     h2Title.innerHTML = cleanTitle;
     h2Title.className = 'blog-title';
@@ -77,7 +91,7 @@ function generateCard(idx){
     pSummary.innerHTML = cleanSummary; 
     pSummary.className = 'blog-summary';
     const pDate = document.createElement('p');
-    pDate.innerText = HW4_styledBlogs[idx].date;
+    pDate.innerText = HW5_styledBlogs[id].dateString;
     pDate.className = 'blog-date';
 
     const btnEdit = document.createElement('button');
@@ -94,32 +108,35 @@ function generateCard(idx){
     divBlogCard.appendChild(h2Title);
     divBlogCard.appendChild(pDate);
     divBlogCard.appendChild(pSummary);
-    divBlogCard.appendChild(btnEdit);
-    divBlogCard.appendChild(btnDelete);
-    
+
+    const user = firebase.auth().currentUser;
+    if (user !== null){
+        divBlogCard.appendChild(btnEdit);
+        divBlogCard.appendChild(btnDelete);
+        
+        btnEdit.addEventListener('click', (e)=>{
+            e.preventDefault();
+            editBlog(cleanTitle, cleanSummary, liBlog, id);
+        });
+        
+        btnDelete.addEventListener('click', (e)=>{
+            e.preventDefault();
+            deleteBlog(liBlog, id);
+        });
+    }
     liBlog.appendChild(divBlogCard);
     
     ulBlogs.appendChild(liBlog);
-    
-    btnEdit.addEventListener('click', (e)=>{
-        e.preventDefault();
-        editBlog(cleanTitle, cleanSummary, HW4_styledBlogs[idx].key);
-    }, false);
-
-    btnDelete.addEventListener('click', (e)=>{
-        e.preventDefault();
-        deleteBlog(HW4_styledBlogs[idx].key);
-    }, false);
 }
 
 /**
  * Update functionality for blog posts
  * @param {string} oldTitle - title subject to change
  * @param {string} oldSummary - summary subject to change
- * @param {string} key - corresponding key of blog posts in the local storage
+ * @param {DOM} li - li element of blog
+ * @param {string} id - corresponding id of blog posts
  */
-function editBlog(oldTitle, oldSummary, key){
-    // console.log('edit clicked!');
+async function editBlog(oldTitle, oldSummary, li, id){
     const dialogEdit = document.createElement('dialog');
     dialogEdit.className = 'dialog-on';
     const formEdit = document.createElement('form');
@@ -160,7 +177,6 @@ function editBlog(oldTitle, oldSummary, key){
 
     dialogEdit.showModal();
 
-
     cancelEdit.addEventListener('click', (e)=>{
         e.preventDefault();
         dialogEdit.close();
@@ -172,22 +188,24 @@ function editBlog(oldTitle, oldSummary, key){
         dialogEdit.close();
         const cleanTitle = DOMPurify.sanitize(inputTitle.value);
         const cleanSummary = DOMPurify.sanitize(inputSummary.value);
-
+        const cleanDate = new Date();
+        const email = firebase.auth().currentUser.email;
         if(cleanTitle && cleanSummary){
-            for (let i=0; i<HW4_styledBlogs.length; i++){
-                // console.log(el);
-                if (HW4_styledBlogs[i].key === key){
-                    HW4_styledBlogs[i].title=cleanTitle;
-                    HW4_styledBlogs[i].date = `Edited ${new Date().toJSON().slice(0,10)}`;
-                    HW4_styledBlogs[i].summary = cleanSummary;
-                    // console.log(HW4_styledBlogs[i]);
-                    cleanList();
-                    fetchData();
-                    localStorage.HW4_styledBlogs = JSON.stringify(HW4_styledBlogs);
-                    dialogEdit.remove();
-                    break;
-                }
+            try{
+                db.collection('blogs').doc(id).update({
+                    title: cleanTitle,
+                    summary: cleanSummary,
+                    date: cleanDate,
+                    dateString: `Edited ${cleanDate.toJSON().slice(0,10)} by ${email}`
+                });
+                li.querySelector('div.blog h2.blog-title').innerHTML = cleanTitle;
+                li.querySelector('div.blog p.blog-summary').innerHTML = cleanSummary;
+                li.querySelector('div.blog p.blog-date').innerHTML = `Edited ${cleanDate.toJSON().slice(0,10)} by ${email}`;
             }
+            catch(e){
+                console.error('Error at updating blog: ', e);
+            }
+            dialogEdit.remove();
         }
     });
 
@@ -197,7 +215,7 @@ function editBlog(oldTitle, oldSummary, key){
  * Helper function to clear up all blog posts
  */
 function cleanList(){
-    const ulBlogs = document.querySelector('ul');
+    const ulBlogs = document.querySelector('ul.blog-list');
     while(ulBlogs.hasChildNodes()){
         ulBlogs.removeChild(ulBlogs.lastChild);
     }
@@ -205,18 +223,34 @@ function cleanList(){
 
 /**
  * Fetch all data to HTML
+ * @return {Promise} all blog posts stored in firestore
  */
-function fetchData(){
-    // console.log(HW4_styledBlogs);
-    for(let i=0; i<HW4_styledBlogs.length; i++){
-        generateCard(i);
+async function fetchData(){
+    // get blogs collection from database 
+    return db.collection('blogs').orderBy('date').get().then((querySnapshot) => {
+        const result = {};
+        querySnapshot.forEach((doc) => {
+            result[doc.id] = doc.data();
+        });
+        return result;
+    });
+}
+
+/**
+ * Populate blog cards into HTML
+ */
+async function populateBlogs(){
+    for(const id in HW5_styledBlogs){
+        generateCard(id);
     }
 }
 
 /**
  * Remove blog from local storage and user end/HTML
+ * @param {DOM} li - li of blog post
+ * @param {string} id - id of blog post
  */
-function deleteBlog(key){
+function deleteBlog(li, id){
     const dialogDelete = document.createElement('dialog');
     dialogDelete.className = 'dialog-on';
     const formDelete = document.createElement('form');
@@ -243,23 +277,22 @@ function deleteBlog(key){
     
     dialogDelete.showModal();
     
-    cancelDelete.addEventListener('click', ()=>{
+    cancelDelete.addEventListener('click', (e)=>{
+        e.preventDefault();
         dialogDelete.close();
         dialogDelete.remove();
     });
 
-    confirmDelete.addEventListener('click', ()=>{
-        dialogDelete.close();
-        for (let i=0; i<HW4_styledBlogs.length; i++){
-            // console.log(el);
-            if (HW4_styledBlogs[i].key === key){
-                HW4_styledBlogs.splice(i,1);
-                cleanList();
-                fetchData();
-                localStorage.HW4_styledBlogs = JSON.stringify(HW4_styledBlogs);
-                dialogDelete.remove();
-                break;
-            }
+    confirmDelete.addEventListener('click', (e)=>{
+        e.preventDefault();
+        try{
+            db.collection('blogs').doc(id).delete();
+            li.remove();
         }
+        catch(e){
+            console.error('Error at deleting blog: ', e);
+        }
+        dialogDelete.close();
+        dialogDelete.remove();
     });
 }

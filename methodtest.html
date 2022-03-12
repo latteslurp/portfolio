@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/styles/methodtest.css" rel="stylesheet">
     <title>Method Test</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
     </fieldset>
     <fieldset>
         <legend>New Article</legend>
-        <form action="#">
+        <form action="#" class="form-article">
             <label for="article-id">ID</label>
             <input type="text" id="article-id">
 
@@ -29,10 +30,12 @@
 
             <input type="date" id="article-date">
 
-            <button value="post">Post</button>
-            <button value="get">Get</button>
-            <button value="put">Put</button>
-            <button value="delete">Delete</button>
+            <section class="operation">
+                <button value="post">Post</button>
+                <button value="get">Get</button>
+                <button value="put">Put</button>
+                <button value="delete">Delete</button>
+            </section>
         </form>
     </fieldset>
 

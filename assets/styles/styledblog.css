@@ -4,6 +4,10 @@
     font-family: 'Arial', Arial, sans-serif;
 }
 
+.d-none{
+    display: none;
+}
+
 header{
     margin: 10px;
     padding: 10px;
@@ -112,7 +116,7 @@ ul{
     padding: 10px;
 }
 
-.cancel-btn, .confirm-btn, .cancel-btn-delete, .confirm-btn-delete{
+.cancel-btn, .confirm-btn, .cancel-btn-delete, .confirm-btn-delete, .cancel-login-btn, .confirm-login-btn, .cancel-logout-btn, .confirm-logout-btn{
     padding: 5px;
     margin: 5px 5px 0px 5px;
     border: none;
@@ -145,14 +149,37 @@ ul{
     margin: 0 5px 0 0;
     border: none;
     background-color: inherit;
+    box-shadow: none;
 }
 
 .edit-post-btn{
-    width: 3em;
-    padding: 1ch;
+    width: 2.3em;
 }
 
 .delete-post-btn{
-    width: 2.8em;
-    padding: 1ch;
+    width: 2.2em;
+}
+
+.confirm-login-btn{
+    background-color: rgb(197, 184, 108);
+    color: #fff;
+}
+
+.hr-login{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.confirm-logout-btn{
+    background-color: #c56d6d;
+    color: #fff;
+}
+
+.error-msg{
+    color:#d46363;
+}
+
+.logout-style{
+    background-color: #db4040;
+    color: #fff;
 }

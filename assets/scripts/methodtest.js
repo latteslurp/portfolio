@@ -8,12 +8,15 @@ function init(){
     const fetchRadioBtn = document.querySelector('input[type="radio"][value="Fetch"]');
     fetchRadioBtn.checked = true;
     let preferXhr = false;
-    
+    const output = document.querySelector('output');
     xhrRadioBtn.addEventListener('click', ()=>{
+        output.innerHTML = null;
         preferXhr = true;
+        
     });
-
+    
     fetchRadioBtn.addEventListener('click', ()=>{
+        output.innerHTML = null;
         preferXhr = false;
     });
 
@@ -24,7 +27,8 @@ function init(){
     const deleteBtn = document.querySelector('button[value="delete"]');
    
 
-    getBtn.addEventListener('click', ()=>{
+    getBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
         if (preferXhr){
             sendRequestXML('GET');
         }
@@ -33,7 +37,8 @@ function init(){
         }
     });
 
-    postBtn.addEventListener('click', ()=>{
+    postBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
         if (preferXhr){
             sendRequestXML('POST');
         }
@@ -43,7 +48,8 @@ function init(){
         
     });
 
-    putBtn.addEventListener('click', ()=>{
+    putBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
         if (preferXhr){
             sendRequestXML('PUT');
         }
@@ -52,7 +58,8 @@ function init(){
         }
     });
 
-    deleteBtn.addEventListener('click', ()=>{
+    deleteBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
         if (preferXhr){
             sendRequestXML('DELETE');
         }
