@@ -31,7 +31,8 @@ function toggleNav(){
 }
 
 function updateDisplayWindowResize(){
-    if (window.innerWidth/window.innerHeight >= 1.3){
+    console.log(window.innerWidth);
+    if (window.innerWidth > 1024){
         changeDisplay();
         renderSlide();
         updateSlide(indexPortfolio_slideIdx);

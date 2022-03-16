@@ -20,7 +20,8 @@ I also made some changes/adjustments to the design (beyond what mentioned above)
 - Change background color of sliders in projects section (project cards, arrows, slide numbers)
 - Further djust width in projects section to make it fit better in different devices
 - Animation on mobile view nav and toggle to close drop down on click
-- Some modification in about me content
+- Some modification in about and project sections content
+- Animation on toggle menu button
 
 ## HW 4
 In this HW, I decided to make a slider/slideshow on the project section of my portfolio. To achieve this, I made some modifications slightly on the HTML file e.g., added new elements and class namings, and also the overall styling in the CSS file e.g., the way the project card displayed as a stack of "slides". Furthermore, I used window event listener to detect window dimension changes. The slider operates as follows:
