@@ -1,26 +1,40 @@
 window.addEventListener('DOMContentLoaded', init);
 
-let HW4_slideIdx = 0;
+let indexPortfolio_slideIdx = 0;
 
 function init(){
+    /* Project slides */
+
+    toggleNav();
+
     if (window.innerWidth/window.innerHeight >= 1.3){
         changeDisplay();
         renderSlide();
-        updateSlide(HW4_slideIdx);
+        updateSlide(indexPortfolio_slideIdx);
 
     }
     else{
         defaultDisplay();
     }
 
-    window.addEventListener('resize', updateDisplayWindowResize);
+    window.addEventListener('resize', updateDisplayWindowResize, {passive:true});
+}
+
+function toggleNav(){
+    const checkbox = document.querySelector('#mobile-menu');
+    const navLis = document.querySelectorAll('.nav-ul-mobile li');
+    navLis.forEach((el)=>{
+        el.addEventListener('click', ()=>{
+            checkbox.checked = false;
+        });
+    });
 }
 
 function updateDisplayWindowResize(){
     if (window.innerWidth/window.innerHeight >= 1.3){
         changeDisplay();
         renderSlide();
-        updateSlide(HW4_slideIdx);
+        updateSlide(indexPortfolio_slideIdx);
 
     }
     else{
@@ -105,7 +119,7 @@ function renderSlide(){
     const divProjects = document.querySelectorAll('.slider section > div');
     const spanSlideNums = document.querySelectorAll('.slider div span');
 
-    HW4_slideIdx = Math.abs(HW4_slideIdx % divProjects.length);
+    indexPortfolio_slideIdx = Math.abs(indexPortfolio_slideIdx % divProjects.length);
 
     for(let i=0; i<divProjects.length; i++){
         divProjects[i].style.visibility = 'hidden';
@@ -120,20 +134,20 @@ function renderSlide(){
         }
     }
 
-    divProjects[HW4_slideIdx].setAttribute('style', 'visibility:"visible"');
-    divProjects[HW4_slideIdx].classList.add('fade-in');
+    divProjects[indexPortfolio_slideIdx].setAttribute('style', 'visibility:"visible"');
+    divProjects[indexPortfolio_slideIdx].classList.add('fade-in');
 
-    spanSlideNums[HW4_slideIdx].classList.add('active-slide');
+    spanSlideNums[indexPortfolio_slideIdx].classList.add('active-slide');
 
 }
 
 function updateSlide(idx){
 
-    HW4_slideIdx = idx;
+    indexPortfolio_slideIdx = idx;
     renderSlide();
 }
 
 function moveSlide(num){
-    HW4_slideIdx += num;
+    indexPortfolio_slideIdx += num;
     renderSlide();
 }

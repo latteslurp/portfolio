@@ -76,13 +76,16 @@ header{
     color: rgb(0, 15, 29);
 }
 
+.nav-ul li a:hover, .nav-ul-mobile li a:hover{
+    color: #882b00;
+}
+
 .nav-ul-mobile li{
     padding: 10px 0;
 }
 
 /* home/landing section */
 #home{
-    /* overflow: auto; */
     padding: 10vh 5vw 15% 5vw;
 }
 
@@ -104,12 +107,12 @@ header{
 
 #home-content{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 #home-name, #home-values{
-    margin: 10ch;
+    margin: 8ch;
 }
 
 #home-name{
@@ -125,6 +128,7 @@ header{
 #home-values h2{
     font-size: 1.8em;
     text-transform: uppercase;
+    margin: 50px 0 10px;
 }
 
 #home-values h2:first-child{
@@ -141,9 +145,9 @@ header{
 }
 
 #home-logo img{
-    width: 2rem;
-    max-width: 45px;
-    padding-left: 1ch;
+    width: 35px;
+    height: 35px;
+    padding-right: 2ch;
 }
 
 /* About section */
@@ -191,8 +195,8 @@ aside {
 }
 
 .grid-item-pic img{
-    width: 240px;
-    height: 313px;
+    width: 280px;
+    height: 365px;
     box-shadow: 0px 5px 5px -2px rgba(0,0,0,.3);
 }
 
@@ -296,7 +300,7 @@ aside {
 
 /* Projects */
 #projects > h3{
-    background: linear-gradient(#9b5b5b, #b47368);
+    background: linear-gradient(#006970, #149abb);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -319,7 +323,6 @@ aside {
     box-shadow: 0px 3px 5px -2px rgba(0,0,0,.3);
     border-radius: 5px;
     position: relative;
-    margin: 10px;
     padding: 0;
     line-height: 300px;
     list-style: none;
@@ -391,7 +394,7 @@ span.prev-slide-js, span.next-slide-js {
     margin: auto;
     width: auto;
     height: auto;
-    color: rgb(187, 173, 91);
+    color: rgb(212, 151, 151);
     text-shadow: 0 1px .5px rgba(0,0,0,.5);
     text-decoration: none;
     font-weight: 600;
@@ -427,7 +430,7 @@ span.next-slide-js {
 
 .slide-num{
     padding: 10px;
-    background-color: rgba(233, 221, 118, 0.5);
+    background-color: rgba(200, 230, 236, 0.5);
     margin: 5px;
     border-radius: 2px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
@@ -438,17 +441,18 @@ span.next-slide-js {
 
 .slide-num:hover{
     cursor: pointer;
-    background-color: rgba(233, 221, 118, 0.3);
+    background-color: rgba(148, 246, 253, 0.3);
 }
 
 .slide-num.active-slide{
-    background-color: rgb(212, 207, 158);
+    background-color: rgba(187, 219, 226, 0.8);
+    font-weight: 900;
 }
 
 .grid-item-project-thumbnail{
     padding: 10px; 
     justify-self: center;
-    background-color: rgb(238, 234, 212);
+    background-color: rgb(195, 227, 231);
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
 }
@@ -461,10 +465,11 @@ span.next-slide-js {
     margin-bottom: 10px;
     padding: 0 10px 0 10px;
     height: 100%;
-    background-color: rgb(255, 251, 235);
+    background-color: rgb(247, 221, 215);
     display: grid;
     border-top-right-radius: inherit;
     border-bottom-right-radius: inherit;
+    border-left: .5px solid rgba(0, 0, 0, 0.5);
 }
 
 .project-desc{
@@ -499,8 +504,8 @@ span.next-slide-js {
 }
 
 .project-github img{
-    width: 1.5em;
-    max-width: 45px;
+    width: 30px;
+    height: 30px;
     padding-left: 1ch;
 }
 
@@ -593,6 +598,7 @@ footer{
 
     .grid-item-pic img{
         width: 210px;
+        height: 274px;
     }
 
     .grid-item-main{
@@ -625,15 +631,16 @@ footer{
         flex-direction: column;
         background-color: inherit;
         margin:auto;
-        max-width: 600px;
+        max-width: 650px;
+        margin-bottom: 80px;
     }
-    
+
     .project-element-grid-container-2-js{
         display: flex;
         flex-direction: column;
         background-color: inherit;
         margin:auto;
-        max-width: 600px;
+        max-width: 650px;
     }
 
     .grid-item-project-thumbnail iframe{
@@ -650,6 +657,8 @@ footer{
         justify-self: center;
         margin-bottom: 0;
         padding-bottom: 10px;
+        border-left: none;
+        border-top: .5px solid rgba(0, 0, 0, 0.5);
     }
     
     .grid-item-project-detail{
@@ -668,16 +677,19 @@ footer{
         flex-direction: row;
         justify-content: flex-end;
         position: relative;
-        margin: 10px;
+        padding: 10px;
     }
 
     :checked + .nav-mobile{
         display: block;
         position: relative;
+        transition: 3s ease-out;
+        border-radius: 5px;
     }
     
     :checked + .nav-ul-mobile{
-        display: block
+        display: block;
+        border-radius: 5px;
     }
 
     .nav-ul-mobile{
@@ -686,14 +698,34 @@ footer{
         padding: 0;
         width: 100%;
         display: inline-block;
+        border-radius: 5px;
     }
 
-    .nav-ul-mobile li { 
-        background-color: rgba(211, 255, 255, 0.9);
+    .nav-ul-mobile li {
+        overflow: hidden;
         padding-left: 0;
         padding-right: 0;
+        font-weight: 800;
+        background-color: rgba(136, 214, 243, 0.9);
+        animation: rotate-menu .2s ease-in forwards;
+        transform-origin: center center;
     }
     
+    @keyframes rotate-menu {
+        0% {
+            /* opacity: 0.5; */
+            transform: rotateX(-90deg)
+        }
+        70% {
+            /* opacity: .7; */
+            transform: rotateX(20deg) 
+        }
+        100% {
+            /* opacity: 1; */
+            transform: rotateX(0deg) 
+        }
+    }
+
     .nav-ul-mobile li a {
         padding-left: 10px;
     }
@@ -702,17 +734,28 @@ footer{
         padding-bottom: 30%;
     }
 
+    #home-values, #home-name{
+        margin-left: 5ch;
+        margin-right: 5ch;
+    }
+
     .grid-container{
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    
+    .grid-item-pic img{
+        width: 400px;
+        height: 522px;
     }
 
     .project-element-grid-container-2{
         display: flex;
         flex-direction: column;
         background-color: inherit;
-        max-width: 400px;
+        max-width: 600px;
+        margin-bottom: 80px;
     }
 
     .grid-item-project-thumbnail iframe{
@@ -725,7 +768,7 @@ footer{
         display: flex;
         flex-direction: column;
         background-color: inherit;
-        max-width: 350px;
+        max-width: 450px;
     }
 
     #home-content{
