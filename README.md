@@ -28,7 +28,8 @@ I also made some changes/adjustments to the design (beyond what mentioned above)
 - Change background color of sliders in projects section (project cards, arrows, slide numbers)
 - Further djust width in projects section to make it fit better in different devices
 - Animation on mobile view nav and toggle to close drop down on click
-- Some modification in about me content
+- Some modification in about and project sections content
+- Animation on toggle menu button
 
 # Links
 
