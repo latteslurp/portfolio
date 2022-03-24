@@ -1,3 +1,5 @@
 # Reyner Santonius
 
-This is my portfolio site, built using HTML, CSS, JavaScript.
+This is my [Portfolio site](reynersantonius.com). Built using HTML, CSS, JavaScript.
+
+reynersantonius.com
