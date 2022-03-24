@@ -1,23 +1,89 @@
-window.addEventListener('DOMContentLoaded', init);
+if (typeof window != 'undefined') {
+    window.addEventListener('DOMContentLoaded', init);
+}
 
 let indexPortfolio_slideIdx = 0;
 
 function init(){
     /* Project slides */
 
-    toggleNav();
-
-    if (window.innerWidth/window.innerHeight >= 1.3){
+    
+    if (window.innerWidth > 1024){
         changeDisplay();
         renderSlide();
         updateSlide(indexPortfolio_slideIdx);
-
     }
     else{
         defaultDisplay();
     }
-
+    
     window.addEventListener('resize', updateDisplayWindowResize, {passive:true});
+    
+    toggleNav();
+    animateExp();
+    animateProject();
+}
+
+function animateProject(){
+    const projToggle = document.querySelectorAll('.project-toggle-desc');
+    const projDesc = document.querySelectorAll('.grid-item-project-detail');
+    
+    if (window.innerWidth < 1024){
+        projToggle.forEach(el => {
+            el.classList.remove('project-toggle-desc');
+            el.classList.add('project-toggle-desc-js');
+        });
+        projDesc.forEach(el=>{
+            el.classList.remove('grid-item-project-detail');
+            el.classList.add('grid-item-project-detail-no-js');
+        });
+    }
+
+    let open = true;
+
+    window.addEventListener('resize', ()=>{
+        if (window.innerWidth < 1024){
+            projToggle.forEach(el => {
+                el.classList.remove('project-toggle-desc');
+                el.classList.add('project-toggle-desc-js');
+            });
+            projDesc.forEach(el=>{
+                el.classList.remove('grid-item-project-detail');
+                el.classList.add('grid-item-project-detail-no-js');
+            });
+        }
+        else{
+            projToggle.forEach(el => {
+                el.classList.remove('project-toggle-desc-js');
+                el.classList.add('project-toggle-desc');
+            });
+            projDesc.forEach(el=>{
+                el.classList.remove('grid-item-project-detail-no-js');
+                el.classList.add('grid-item-project-detail');
+            });
+        }
+    });
+    
+
+    const checkboxToggle = document.querySelectorAll('button#toggle-desc-prompt');
+    for(let i=0; i<checkboxToggle.length; i++){
+        checkboxToggle[i].addEventListener('click', ()=>{
+            if(open === true){
+                checkboxToggle[i].innerHTML = 'Close description';
+                projDesc[i].classList.remove('grid-item-project-detail-no-js');
+                projDesc[i].classList.add('grid-item-project-detail-js');
+                projDesc[i].classList.add('animate-desc');
+                open = false;
+            }
+            else{
+                checkboxToggle[i].innerHTML = 'Open description';
+                projDesc[i].classList.remove('grid-item-project-detail-js');
+                projDesc[i].classList.remove('animate-desc');
+                projDesc[i].classList.add('grid-item-project-detail-no-js');
+                open = true;
+            }
+        });    
+    }
 }
 
 function toggleNav(){
@@ -30,8 +96,31 @@ function toggleNav(){
     });
 }
 
+function animateExp(){
+    const expCards = document.querySelectorAll('.experience-card');
+    
+    expCards.forEach(el => { 
+        const rect = el.getBoundingClientRect();
+        if ( rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        ){
+            el.classList.add('fade-in-entry');
+        }
+        else{
+            el.classList.add('invisible');
+        }
+    });
+    window.addEventListener('scroll', ()=>{
+        expCards.forEach(el => { 
+            const rect = el.getBoundingClientRect();
+            if ( rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            ){
+                el.classList.add('fade-in-entry');
+            }
+        });
+    });
+}
+
 function updateDisplayWindowResize(){
-    console.log(window.innerWidth);
     if (window.innerWidth > 1024){
         changeDisplay();
         renderSlide();
@@ -120,6 +209,9 @@ function renderSlide(){
     const divProjects = document.querySelectorAll('.slider section > div');
     const spanSlideNums = document.querySelectorAll('.slider div span');
 
+    if (indexPortfolio_slideIdx < 0){
+        indexPortfolio_slideIdx = divProjects.length - 1;
+    }
     indexPortfolio_slideIdx = Math.abs(indexPortfolio_slideIdx % divProjects.length);
 
     for(let i=0; i<divProjects.length; i++){
@@ -143,7 +235,6 @@ function renderSlide(){
 }
 
 function updateSlide(idx){
-
     indexPortfolio_slideIdx = idx;
     renderSlide();
 }
