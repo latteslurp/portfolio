@@ -22,6 +22,7 @@ function init(){
     toggleNav();
     animateExp();
     animateProject();
+    copyright();
 }
 
 function animateProject(){
@@ -242,4 +243,9 @@ function updateSlide(idx){
 function moveSlide(num){
     indexPortfolio_slideIdx += num;
     renderSlide();
+}
+
+function copyright(){
+    const spanCopyRight= document.querySelector('span#copyright-line');
+    spanCopyRight.innerHTML = new Date().getFullYear();
 }
